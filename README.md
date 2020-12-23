@@ -114,8 +114,7 @@ Bold fancy service makes the messages of the user bold cursive. The coin flip se
 option to flip a coin. The Clap service can make the user add clapping emojis between a selected
 word/user
 
-# Moderation Commands:
-
+Moderation Commands:
 1. Ban: Bans a member whether the member is in the server or not
 2. Clearwarn: Removes all warnings from a member.
 3. Kick: Kicks a member from the server.
