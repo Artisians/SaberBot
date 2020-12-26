@@ -6,7 +6,7 @@ const loadCommands = require("./commands/load-commands");
 const commandBase = require("./commands/command-base");
 
 client.on("ready", async () => {
-  console.log("The client is ready!");
+  console.log("The bot is ready!");
 
   commandBase.loadPrefixes(client);
   loadCommands(client);

@@ -8,6 +8,8 @@ module.exports = {
   requiredRoles: ["Member"],
   callback: async (message, arguments) => {
     const target = message.mentions.users.first();
+    const Discord = require("discord.js");
+
     if (!target) {
       message.reply("Please specify someone to warn.");
       return;
@@ -46,6 +48,13 @@ module.exports = {
       } finally {
         mongoose.connection.close();
       }
+    });
+
+    const warnConfirmationEmbed = new Discord.MessageEmbed()
+      .setColor("RED")
+      .setDescription(`✅ ${target} has been successfully warned!`);
+    message.channel.send({
+      embed: warnConfirmationEmbed,
     });
   },
 };

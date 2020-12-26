@@ -2,7 +2,7 @@ const mongo = require("../../mongo");
 const warnSchema = require("../../schemas/warn-schema");
 
 module.exports = {
-  commands: ["listwarnings", "lw"],
+  commands: ["warns"],
   minArgs: 1,
   expectedArgs: "<Target user's @>",
   requiredRoles: ["Member"],
