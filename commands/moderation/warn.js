@@ -4,7 +4,7 @@ const warnSchema = require("../../schemas/warn-schema");
 module.exports = {
   commands: "warn",
   minArgs: 2,
-  expectedArgs: "<Target user's @> <reason>",
+  expectedArgs: "<Target user's @ or ID>",
   requiredRoles: ["Member"],
   callback: async (message, arguments) => {
     const target = message.mentions.users.first();

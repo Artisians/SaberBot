@@ -1,7 +1,7 @@
 module.exports = {
   commands: ["unban"],
   minArgs: 1,
-  expectedArgs: "<Target user's @>",
+  expectedArgs: "<Target user's @ or ID>",
   requiredRoles: ["Member"],
   callback: async (message, args, text) => {
     const target = args[0];
