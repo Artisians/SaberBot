@@ -144,6 +144,6 @@ device, converts the video to mp3, and plays it.
 5. Queue: Shows the songs in the queue.
 
 # Get Started!
-1: npm install discord.js
-
-2: npm install mongoose
+1. npm init -y
+2. npm install discord.js
+3. npm install mongoose
