@@ -1,4 +1,3 @@
-const mongo = require("../../mongo");
 const warnSchema = require("../../schemas/warn-schema");
 
 module.exports = {
@@ -27,28 +26,22 @@ module.exports = {
       reason,
     };
 
-    await mongo().then(async (mongoose) => {
-      try {
-        await warnSchema.findOneAndUpdate(
-          {
-            guildId,
-            userId,
-          },
-          {
-            guildId,
-            userId,
-            $push: {
-              warnings: warning,
-            },
-          },
-          {
-            upsert: true,
-          }
-        );
-      } finally {
-        mongoose.connection.close();
+    await warnSchema.findOneAndUpdate(
+      {
+        guildId,
+        userId,
+      },
+      {
+        guildId,
+        userId,
+        $push: {
+          warnings: warning,
+        },
+      },
+      {
+        upsert: true,
       }
-    });
+    );
 
     const warnConfirmationEmbed = new Discord.MessageEmbed()
       .setColor("RED")
