@@ -145,4 +145,5 @@ device, converts the video to mp3, and plays it.
 
 # Get Started!
 1: npm install discord.js
+
 2: npm install mongoose
