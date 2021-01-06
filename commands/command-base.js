@@ -1,4 +1,3 @@
-const mongo = require("../mongo");
 const commandPrefixSchema = require("../schemas/command-prefix-schema");
 const { prefix: globalPrefix } = require("../config.json");
 const guildPrefixes = {}; // { 'guildId' : 'prefix' }
@@ -45,6 +44,8 @@ const validatePermissions = (permissions) => {
   }
 };
 
+let recentlyRan = [];
+
 module.exports = (client, commandOptions) => {
   let {
     commands,
@@ -52,19 +53,19 @@ module.exports = (client, commandOptions) => {
     permissionError = "You do not have permission to run this command.",
     minArgs = 0,
     maxArgs = null,
+    cooldown = -1,
+    requiredChannel = "",
     permissions = [],
     requiredRoles = [],
     callback,
   } = commandOptions;
 
-  // Ensure the command and aliases are in an array
   if (typeof commands === "string") {
     commands = [commands];
   }
 
   console.log(`Registering command "${commands[0]}"`);
 
-  // Ensure the permissions are in an array and are all valid
   if (permissions.length) {
     if (typeof permissions === "string") {
       permissions = [permissions];
@@ -73,9 +74,8 @@ module.exports = (client, commandOptions) => {
     validatePermissions(permissions);
   }
 
-  // Listen for messages
   client.on("message", async (message) => {
-    const { member, content, guild } = message;
+    const { member, content, guild, channel } = message;
 
     const prefix = guildPrefixes[guild.id] || globalPrefix;
 
@@ -86,9 +86,18 @@ module.exports = (client, commandOptions) => {
         content.toLowerCase().startsWith(`${command} `) ||
         content.toLowerCase() === command
       ) {
-        // A command has been ran
+        if (requiredChannel && requiredChannel !== channel.name) {
+          //<#ID>
+          const foundChannel = guild.channels.cache.find((channel) => {
+            return channel.name === requiredChannel;
+          });
 
-        // Ensure the user has the required permissions
+          message.reply(
+            `You can only run this command inside of <#${foundChannel.id}>.`
+          );
+          return;
+        }
+
         for (const permission of permissions) {
           if (!member.hasPermission(permission)) {
             message.reply(permissionError);
@@ -96,7 +105,6 @@ module.exports = (client, commandOptions) => {
           }
         }
 
-        // Ensure the user has the required roles
         for (const requiredRole of requiredRoles) {
           const role = guild.roles.cache.find(
             (role) => role.name === requiredRole
@@ -110,13 +118,17 @@ module.exports = (client, commandOptions) => {
           }
         }
 
-        // Split on any number of spaces
+        let cooldownString = `${guild.id}-${member.id}-${commands[0]}`;
+
+        if (cooldown > 0 && recentlyRan.includes(cooldownString)) {
+          message.reply("You cannot use that command so soon, please wait.");
+          return;
+        }
+
         const arguments = content.split(/[ ]+/);
 
-        // Remove the command which is the first index
         arguments.shift();
 
-        // Ensure we have the correct number of arguments
         if (
           arguments.length < minArgs ||
           (maxArgs !== null && arguments.length > maxArgs)
@@ -125,6 +137,20 @@ module.exports = (client, commandOptions) => {
             `Incorrect syntax! Use ${prefix}${alias} ${expectedArgs}`
           );
           return;
+        }
+
+        if (cooldown > 0) {
+          recentlyRan.push(cooldownString);
+
+          setTimeout(() => {
+            console.log("Before:", recentlyRan);
+
+            recentlyRan = recentlyRan.filter((string) => {
+              return string !== cooldownString;
+            });
+
+            console.log("After:", recentlyRan);
+          }, 1000 * cooldown);
         }
 
         // Handle the custom command code
@@ -136,10 +162,6 @@ module.exports = (client, commandOptions) => {
   });
 };
 
-/**
- * I forgot to add this function to the video.
- * It updates the cache when the !setprefix command is ran.
- */
 module.exports.updateCache = (guildId, newPrefix) => {
   guildPrefixes[guildId] = newPrefix;
 };
@@ -149,7 +171,7 @@ module.exports.loadPrefixes = async (client) => {
     const guildId = guild[1].id;
 
     const result = await commandPrefixSchema.findOne({ _id: guildId });
-    guildPrefixes[guildId] = result.prefix;
+    guildPrefixes[guildId] = result ? result.prefix : globalPrefix;
   }
 
   console.log(guildPrefixes);
