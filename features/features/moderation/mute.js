@@ -2,7 +2,7 @@ const muteSchema = require("../../../schemas/mute-schema");
 
 module.exports = (client) => {
   const checkMutes = async () => {
-    console.log("CHECKING MUTE DATA");
+    console.log("CHECKING ACTIVE MUTES!");
 
     const now = new Date();
 
