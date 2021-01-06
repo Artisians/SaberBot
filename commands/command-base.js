@@ -152,7 +152,6 @@ module.exports = (client, commandOptions) => {
           }, 1000 * cooldown);
         }
 
-        // Handle the custom command code
         callback(message, arguments, arguments.join(" "), client);
 
         return;

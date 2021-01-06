@@ -146,10 +146,8 @@ word/user
 
 # Giveaway Commands:
 
-1. Gcreate: Starts the giveaway process by asking the user what item to giveaway, how many
-   winners will be selected and how long it will take till the results are announced.
-2. Geroll: Rerolls the winner based on the amount you previously set
-3. Gend: Ends the giveaway early.
+1. gstart: Starts the giveaway process
+2. Gend: Ends the giveaway and find the winner.
 
 # Music Commands
 
