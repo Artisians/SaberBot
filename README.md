@@ -1,5 +1,12 @@
 # SaberBot
 
+# Get Started!
+
+1. npm init -y
+2. npm install discord.js
+3. npm install mongoose
+4. node index.js
+
 # Project Description
 
 Discord is a real-time messaging platform that bills itself as an “all-in-one voice and text
@@ -153,9 +160,3 @@ word/user
 3. Resume: Resumes music.
 4. Next: Skips to the next song in the queue.
 5. Queue: Shows the songs in the queue.
-
-# Get Started!
-
-1. npm init -y
-2. npm install discord.js
-3. npm install mongoose
