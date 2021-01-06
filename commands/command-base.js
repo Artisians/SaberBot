@@ -1,6 +1,6 @@
 const commandPrefixSchema = require("../schemas/command-prefix-schema");
 const { prefix: globalPrefix } = require("../config.json");
-const guildPrefixes = {}; // { 'guildId' : 'prefix' }
+const guildPrefixes = {};
 
 const validatePermissions = (permissions) => {
   const validPermissions = [
@@ -87,7 +87,6 @@ module.exports = (client, commandOptions) => {
         content.toLowerCase() === command
       ) {
         if (requiredChannel && requiredChannel !== channel.name) {
-          //<#ID>
           const foundChannel = guild.channels.cache.find((channel) => {
             return channel.name === requiredChannel;
           });

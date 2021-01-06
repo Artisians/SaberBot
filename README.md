@@ -139,11 +139,10 @@ word/user
 3. Kick: Kicks a member from the server.
 4. Mute: Mutes a member for the specified duration if a time is specified, or indefinity.
 5. Purge: Mass message delete, or single user!
-6. Removewarn: Removes a warning using the case id.
-7. Unban: Unbans a member.
-8. Unmute: Unmutes a member.
-9. Warn: Warns a member.
-10. Warns: Lists all warns.
+6. Unban: Unbans a member.
+7. Unmute: Unmutes a member.
+8. Warn: Warns a member.
+9. Warns: Lists all warns.
 
 # Giveaway Commands:
 
