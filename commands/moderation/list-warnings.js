@@ -1,4 +1,3 @@
-const mongo = require("../../mongo");
 const warnSchema = require("../../schemas/warn-schema");
 
 module.exports = {
@@ -6,7 +5,7 @@ module.exports = {
   minArgs: 1,
   expectedArgs: "<Target user's @>",
   requiredRoles: ["Member"],
-  callback: async (message, arguments, text) => {
+  callback: async (message) => {
     const target = message.mentions.users.first();
     if (!target) {
       message.reply("Please specify a user to load the warnings for.");
