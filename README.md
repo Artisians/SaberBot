@@ -3,7 +3,6 @@
 # Get Started!
 
 ```
-
 1. npm init -y
 2. npm install discord.js
 3. npm install mongoose
@@ -12,7 +11,6 @@
 6. npm install prism-media
 7  npm install @discordjs/opus
 8. node index.js
-
 ```
 
 # Project Description
