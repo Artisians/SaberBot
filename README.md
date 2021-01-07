@@ -1,6 +1,20 @@
 # SaberBot
 
+# Get Started!
+
+```
+1. npm init -y
+2. npm install discord.js
+3. npm install mongoose
+4. npm install ffmpeg-static
+5. npm install ytdl-core-discord
+6. npm install prism-media
+7. npm install @discordjs/opus
+8. node index.js
+```
+
 # Project Description
+
 Discord is a real-time messaging platform that bills itself as an “all-in-one voice and text
 chat for gamers.” Due to its slick interface, ease of use, and extensive features, Discord has
 experienced rapid growth and is becoming increasingly popular even among those with little
@@ -46,38 +60,40 @@ software, and "MongoDB Inc." for the Database.
 # Functions and Services
 
 1. User leveling system
- -A way for users to be more active in chatting by tracking how many messages they sent and
-giving them rewards based on it.
+   -A way for users to be more active in chatting by tracking how many messages they sent and
+   giving them rewards based on it.
 
 2. Music Player
- -Full-fledged music player where the user can play songs using simple commands
- 
+   -Full-fledged music player where the user can play songs using simple commands
+
 3. Administrative features to manage chat
- -A way to manage users and chat with commands only for administrators! (Lock Chat,
-Ban/Kick/Mute Users, Purge Text)
+   -A way to manage users and chat with commands only for administrators! (Lock Chat,
+   Ban/Kick/Mute Users, Purge Text)
 
 4. Economy system
- -A text-based role-playing game for users to get their dream job and earn money and go
-against other users!
+   -A text-based role-playing game for users to get their dream job and earn money and go
+   against other users!
 
 5. Giveaway system
- -A way for users to host fair and seamless giveaways for others!
- 
+   -A way for users to host fair and seamless giveaways for others!
+
 6. Color Role system
- -Color based roles for users to make the chat more vibrant and fun!
- 
+   -Color based roles for users to make the chat more vibrant and fun!
+
 7. Starboard
- -A way for users to save their most precious memory in chat!
- 
+   -A way for users to save their most precious memory in chat!
+
 8. Scheduling system
- -A way to create timed events and set alarms/timers to never miss your most important
-moment! All while handling different time zones.
+   -A way to create timed events and set alarms/timers to never miss your most important
+   moment! All while handling different time zones.
 
 9. Fun commands
- -A set of fun commands to make the chat lively for example (A random picture of a cute cat or
-a cute dog, 8Ball) and much more!
+   -A set of fun commands to make the chat lively for example (A random picture of a cute cat or
+   a cute dog, 8Ball) and much more!
 
-Economy system: Consists of a game; allowing the users to have fun by playing it. Where you
+# Economy system:
+
+Consists of a game; allowing the users to have fun by playing it. Where you
 register and start with a level one character. Each character will have an inventory in which he can store
 items, potions, weapons, and money (which he earns by doing different tasks in the game). The user has
 access to optional quests (which he/she has to register as an adventure for), and optional jobs (which
@@ -90,57 +106,58 @@ different time zones, in which the user can create, look up, or subscribe to eve
 to decide the event time on a channel by the event creator. The creator is also able to reconfigure or
 delete the event.
 
-User leveling system Service: A service which handles users' roles in a server, based on their
+# User leveling system Service:
+
+A service which handles users' roles in a server, based on their
 contribution. The service is preconfigured with a set of rules for leveling up users and setting their roles
 based on a points system reflecting their contribution, while also allowing the Admin of the server full
 customizability of roles and rules based on preference. The service is used to simplify, and aid in grouping
 certain users by the Admins or Mods for any specific purpose.
 
-The starboard system: A way for users to save a special moment that happened in chat by using
+# The starboard system:
+
+A way for users to save a special moment that happened in chat by using
 the command “createstarboard”, you're able to specify which channel you would like to save the posts
 inside. The way a post is saved is by "Starring" the post (by reacting to the post with a star). When the
 post reaches the set amount of which is configured by using “setstarlimit”, the post is then embedded
 inside the selected channel for everyone to go back to.
 
-Color Role System: A way for users to pick their favorite color to show off in chat. By simply using
+# Color Role System:
+
+A way for users to pick their favorite color to show off in chat. By simply using
 the "coloradd" command, which prompts you to type [Name of the color], and the [Color Hex Code]. It
 then adds the color to the color list which is shown by using the "colorlist" command, and selecting the
 color from the list by simply writing the "pick [color]".
 
-Fun Commands: 8-ball Is a service that can answer the user’s questions by sending the question
+# Fun Commands:
+
+8-ball Is a service that can answer the user’s questions by sending the question
 to the magic ball. The Add emoji service converts the user's message to emojis. The Aesthetics service
 converts the user's text to full width. Aww service gives the user a random picture of a cat or dog. The
 Bold fancy service makes the messages of the user bold cursive. The coin flip service gives the user the
 option to flip a coin. The Clap service can make the user add clapping emojis between a selected
 word/user
 
-Moderation Commands:
+# Moderation Commands:
+
 1. Ban: Bans a member whether the member is in the server or not
 2. Clearwarn: Removes all warnings from a member.
 3. Kick: Kicks a member from the server.
-4. Lockdown: Locks down a channel by changing permissions for the default role.
-5. Mute: Mutes a member for the specified duration if a time is specified, or indefinity.
-6. Muterole: Sets the role that will be used for the mute command using “?muterole set” or
-“?muterole create.”.
-7. Purge: Mass message delete, or single user!
-8. Removewarn: Removes a warning using the case id.
-9. Tempban: Bans someone for the specified duration.
-10. Unban: Unbans a member.
-11. Unlockdown: Unlocks a channel’s lockdown.
-12. Unmute: Unmutes a member.
-13. Warn: Warns a member.
-14. Warns: Lists all warns.
+4. Mute: Mutes a member for the specified duration if a time is specified, or indefinity.
+5. Purge: Mass message delete, or single user!
+6. Unban: Unbans a member.
+7. Unmute: Unmutes a member.
+8. Warn: Warns a member.
+9. Warns: Lists all warns.
 
-Giveaway Commands:
-1. Gcreate: Starts the giveaway process by asking the user what item to giveaway, how many
-winners will be selected and how long it will take till the results are announced.
-2. Geroll: Rerolls the winner based on the amount you previously set
-3. Gend: Ends the giveaway early.
+# Giveaway Commands:
 
-Music Commands
-1. Play: Searches for the requested song by aggregating it from YouTube then downloading it on the
-device, converts the video to mp3, and plays it.
+1. gstart: Starts the giveaway process
+2. gend: Ends the giveaway and finds the winner randomly.
+
+# Music Commands
+
+1. Play: Searches for the requested song by aggregating it from YouTube then downloads it on the device, converts the video to mp3, and plays it.
 2. Stop: Stops the music from playing.
-3. Resume: Resumes music.
-4. Next: Skips to the next song in the queue.
-5. Queue: Shows the songs in the queue.
+3. Next: Skips to the next song in the queue.
+4. Queue: Shows the songs in the queue.
