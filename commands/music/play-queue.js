@@ -7,7 +7,7 @@ module.exports = {
   expectedArgs: "<Link>",
   requiredRoles: ["Member"],
   callback: async (message, args) => {
-    const serverQueue = queue.get(message.guild.id);
+    global.serverQueue = queue.get(message.guild.id);
     const voiceChannel = message.member.voice.channel;
     module.exports = { constToExport: serverQueue };
 
