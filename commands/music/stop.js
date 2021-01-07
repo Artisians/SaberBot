@@ -13,11 +13,11 @@ module.exports = {
     }
     voiceChannel.leave();
     const leftVoiceConfirmationEmbed = new Discord.MessageEmbed()
-      .setColor("GREEN")
+      .setTitle("🎧 Saber 🎧")
+      .setColor("RED")
       .setDescription(`✅ Audio stopped!`);
     let leftVoiceConfirmation = await message.channel.send(
       leftVoiceConfirmationEmbed
     );
-    leftVoiceConfirmation.delete();
   },
 };
