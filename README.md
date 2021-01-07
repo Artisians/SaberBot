@@ -9,7 +9,7 @@
 4. npm install ffmpeg-static
 5. npm install ytdl-core-discord
 6. npm install prism-media
-7  npm install @discordjs/opus
+7. npm install @discordjs/opus
 8. node index.js
 ```
 
