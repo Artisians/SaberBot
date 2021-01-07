@@ -2,10 +2,16 @@
 
 # Get Started!
 
+```
 1. npm init -y
 2. npm install discord.js
 3. npm install mongoose
-4. node index.js
+4. npm install ffmpeg-static
+5. npm install ytdl-core-discord
+6. npm install prism-media
+7  npm install @discordjs/opus
+8. node index.js
+```
 
 # Project Description
 
