@@ -159,5 +159,6 @@ word/user
 
 1. Play: Searches for the requested song by aggregating it from YouTube then downloads it on the device, converts the video to mp3, and plays it.
 2. Stop: Stops the music from playing.
-3. Next: Skips to the next song in the queue.
+3. Skip: Skips to the next song in the queue.
 4. Queue: Shows the songs in the queue.
+5. Now Playing: Shows currently playing song.

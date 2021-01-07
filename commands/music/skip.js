@@ -3,6 +3,7 @@ module.exports = {
   minArgs: 0,
   requiredRoles: ["Member"],
   callback: async (message) => {
+    const Discord = require("discord.js");
     const { channel } = message.member.voice;
     if (!channel)
       return message.channel.send(
@@ -13,6 +14,12 @@ module.exports = {
         "There is nothing playing that I could skip for you."
       );
     serverQueue.connection.dispatcher.end("Skip command has been used!");
-    return message.channel.send("Song Skipped!");
+    const skipSongEmbed = new Discord.MessageEmbed()
+      .setTitle("🎧 Saber 🎧")
+      .setColor("GREEN")
+      .setDescription(`Song Skipped!`);
+    message.channel.send({
+      embed: skipSongEmbed,
+    });
   },
 };

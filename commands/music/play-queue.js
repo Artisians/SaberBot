@@ -7,6 +7,7 @@ module.exports = {
   expectedArgs: "<Link>",
   requiredRoles: ["Member"],
   callback: async (message, args) => {
+    const Discord = require("discord.js");
     global.serverQueue = queue.get(message.guild.id);
     const voiceChannel = message.member.voice.channel;
     module.exports = { constToExport: serverQueue };
@@ -52,13 +53,24 @@ module.exports = {
       }
     } else {
       serverQueue.songs.push(song);
-      return message.channel.send(
-        `✅ ${song.title} has been added to the queue!`
-      );
+      const nowPlayingEmbed = new Discord.MessageEmbed()
+        .setTitle("🎧 Saber 🎧")
+        .setColor("BLUE")
+        .setDescription(`${song.title} has been added to the queue!`);
+      message.channel.send({
+        embed: nowPlayingEmbed,
+      });
     }
 
     async function play(guild, song) {
       const serverQueue = queue.get(guild.id);
+      const startPlayingEmbed = new Discord.MessageEmbed()
+        .setTitle("🎧 Saber 🎧")
+        .setColor("BLUE")
+        .setDescription(`🎶 Now playing: ${serverQueue.songs[0].title}`);
+      message.channel.send({
+        embed: startPlayingEmbed,
+      });
       if (!song) {
         serverQueue.voiceChannel.leave();
         queue.delete(guild.id);
