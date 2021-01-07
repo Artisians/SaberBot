@@ -147,13 +147,11 @@ word/user
 # Giveaway Commands:
 
 1. gstart: Starts the giveaway process
-2. Gend: Ends the giveaway and find the winner.
+2. gend: Ends the giveaway and finds the winner randomly.
 
 # Music Commands
 
-1. Play: Searches for the requested song by aggregating it from YouTube then downloading it on the
-   device, converts the video to mp3, and plays it.
+1. Play: Searches for the requested song by aggregating it from YouTube then downloads it on the device, converts the video to mp3, and plays it.
 2. Stop: Stops the music from playing.
-3. Resume: Resumes music.
-4. Next: Skips to the next song in the queue.
-5. Queue: Shows the songs in the queue.
+3. Next: Skips to the next song in the queue.
+4. Queue: Shows the songs in the queue.
