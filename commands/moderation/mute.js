@@ -46,7 +46,7 @@ module.exports = {
       return;
     }
 
-    let duration = reasons[reason] * (prevMutes + 1);
+    let duration = reasons[reason] * (prevMutes.length + 1);
 
     const expires = new Date();
     expires.setHours(expires.getHours() + duration);
