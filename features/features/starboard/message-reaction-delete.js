@@ -1,7 +1,6 @@
-const Discord = require("discord.js");
 module.exports = (client) => {
   console.log("WAITING FOR REACTIONS!");
-  client.on("messageReactionAdd", async (reaction) => {
+  client.on("messageReactionRemove", async (reaction) => {
     const handleStarboard = async () => {
       const starboard = client.channels.cache.find(
         (channel) => channel.name.toLowerCase() === "starboard"
@@ -14,21 +13,9 @@ module.exports = (client) => {
             : false
           : false
       );
-      if (existingMsg) existingMsg.edit(`${reaction.count} - 🌟`);
-      else {
-        const embed = new Discord.MessageEmbed()
-          .setAuthor(
-            reaction.message.author.tag,
-            reaction.message.author.displayAvatarURL()
-          )
-          .addField("URL", `[Go to message!](${reaction.message.url})`)
-          .setDescription(reaction.message.content)
-          .setFooter(
-            reaction.message.id +
-              " - " +
-              new Date(reaction.message.createdTimestamp)
-          );
-        if (starboard) starboard.send("1 - ⭐", embed);
+      if (existingMsg) {
+        if (reaction.count === 0) existingMsg.delete({ timeout: 2500 });
+        else existingMsg.edit(`${reaction.count} - 🌟`);
       }
     };
     if (reaction.emoji.name === "🌟") {
