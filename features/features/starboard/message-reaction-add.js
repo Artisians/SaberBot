@@ -21,7 +21,7 @@ module.exports = (client) => {
             reaction.message.author.tag,
             reaction.message.author.displayAvatarURL()
           )
-          .addField("Url", reaction.message.url)
+          .addField("URL", `[Go to message!](${reaction.message.url})`)
           .setDescription(reaction.message.content)
           .setFooter(
             reaction.message.id +
