@@ -1,5 +1,5 @@
 const ytdl = require("ytdl-core-discord");
-global.queue = new Map();
+const queue = new Map();
 const { Util } = require("discord.js");
 module.exports = {
   commands: ["play"],

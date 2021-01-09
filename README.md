@@ -11,6 +11,9 @@
 6. npm install prism-media
 7. npm install @discordjs/opus
 8. node index.js
+9. npm install mathjs
+10. npm install date-and-time
+11. npm link ms
 ```
 
 # Project Description
@@ -94,17 +97,11 @@ software, and "MongoDB Inc." for the Database.
 # Economy system:
 
 Consists of a game; allowing the users to have fun by playing it. Where you
-register and start with a level one character. Each character will have an inventory in which he can store
-items, potions, weapons, and money (which he earns by doing different tasks in the game). The user has
-access to optional quests (which he/she has to register as an adventure for), and optional jobs (which
-he/she can work on daily, gain money, and get promoted). The character can also buy properties and gain
-money from renting, or selling them after a while. The character can also hunt animals, monsters, or even
-encounter bandits and be forced to fight them. He can deposit his money in a bank to keep bandits from
-stealing it. He/she can also chop wood, fish, cook, collect recipes for weapons or potions, and craft items.
-Scheduling System Service: A calendar mock-up service managing multiple events while handling
-different time zones, in which the user can create, look up, or subscribe to events. A poll can be created
-to decide the event time on a channel by the event creator. The creator is also able to reconfigure or
-delete the event.
+- register by showing commands and setting up all your info
+- addbalance : For admins: they can they can add balance to their profile or others 
+- balance: shows the user's coins that he aquired while playing the game
+- work: the users can work one of four jobs at random and earn money (coins) , experiance , levels, 
+  the user can only work every 12 hours to stop from spamming the work commands
 
 # User leveling system Service:
 
