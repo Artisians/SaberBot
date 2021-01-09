@@ -1,3 +1,4 @@
+const Discord = require("discord.js");
 module.exports = {
   commands: "kill",
   minArgs: 1,
@@ -7,8 +8,15 @@ module.exports = {
     if (!user) {
       return message.channel.send("Please include who you are killing.");
     }
-    return message.channel.send(
-      message.author.username + " Killed " + user.username
-    );
+
+    const kEmbed = new Discord.MessageEmbed()
+    .attachFiles("https://i.gifer.com/JZm.gif");
+    
+    message.channel.send(
+    message.author.username + " Killed " + user.username
+    )
+    message.channel.send(kEmbed)
+      
+    
   },
 };
