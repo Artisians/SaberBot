@@ -4,8 +4,8 @@ module.exports = {
   requiredRoles: ["Member"],
   callback: async (message) => {
     const Discord = require("discord.js");
-    const { channel } = message.member.voice;
-    if (!channel)
+    const voiceChannel = message.member.voice.channel;
+    if (!voiceChannel)
       return message.channel.send(
         "I'm sorry but you need to be in a voice channel to play music!"
       );
