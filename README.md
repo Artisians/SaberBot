@@ -14,7 +14,7 @@
 9. npm install mathjs
 10. npm install date-and-time
 11. npm link ms
-12. npm install requests
+12. npm install request
 ```
 
 # Project Description
