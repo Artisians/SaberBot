@@ -1,6 +1,5 @@
 const mongo = require('./mongo')
 const profileSchema = require('./schemas/profile-schema')
-const inventorySchema = require('./schemas/inventory-schema')
 const { Message } = require('discord.js')
 
 const coinsCache = {} // { 'guildId-userId': coins }
@@ -93,8 +92,7 @@ module.exports.registerNewUser= async (guildId, userId) => {
         worked,
       }).save()
     }
-    return false
-    
+    return false  
   })
 }
 
@@ -115,7 +113,6 @@ module.exports.getWorked = async (guildId, userId) => {
     }
   })
 }
-
 
 module.exports.addCoins = async (guildId, userId, coins) => {
   return await mongo().then(async (mongoose) => {

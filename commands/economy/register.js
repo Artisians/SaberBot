@@ -1,35 +1,35 @@
- 
+const Discord = require('discord.js')
 const economy = require('../../economy')
 
 module.exports = {
   commands: ['register', 'reg'],
-  minArgs: 1,
-  callback: async (message,) => {
+  callback: async (message) => {
     const guildId = message.guild.id
     const target =  message.author
     const targetId = target.id
-
-
-
-
-    if (!mention) {
-      message.reply('Please tag a user to add coins to.')
-      return
+    let returnning = economy.registerNewUser(guildId,targetId)
+    if(!returnning){
+        message.reply(`has been registered, \n Welcome to the Economy system get started with there commands`)
+        const embed = new Discord.MessageEmbed()
+        .setTitle('Example text embed')
+        .setColor('#00AAFF')
+        .addFields(
+          {
+            name: '?balance',
+            value: 'check your balance and the coins you earn',
+          },
+          {
+            name: '?work',
+            value: 'Find a job and earn money and experiance',
+          },
+          {
+            name: '?add-balance @user #amount',
+            value: 'if you are an admin, give your friends some money to get them started',
+          }
+        )
+      message.channel.send(embed)      
+    }else{
+        message.reply(`<@${targetId}> has been registered before`)
     }
-
-    const coins = arguments[1]
-    if (isNaN(coins)) {
-      message.reply('Please provide a valid numnber of coins.')
-      return
-    }
-
-    const guildId = message.guild.id
-    const userId = mention.id
-
-    const newCoins = await economy.addCoins(guildId, userId, coins)
-
-    message.reply(
-      `You have given <@${userId}> ${coins} coin(s). They now have ${newCoins} coin(s)!`
-    )
   },
 }
