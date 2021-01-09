@@ -121,13 +121,6 @@ inside. The way a post is saved is by "Starring" the post (by reacting to the po
 post reaches the set amount of which is configured by using “setstarlimit”, the post is then embedded
 inside the selected channel for everyone to go back to.
 
-# Color Role System:
-
-A way for users to pick their favorite color to show off in chat. By simply using
-the "coloradd" command, which prompts you to type [Name of the color], and the [Color Hex Code]. It
-then adds the color to the color list which is shown by using the "colorlist" command, and selecting the
-color from the list by simply writing the "pick [color]".
-
 # Fun Commands:
 
 8-ball Is a service that can answer the user’s questions by sending the question
