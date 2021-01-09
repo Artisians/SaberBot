@@ -11,6 +11,8 @@
 6. npm install prism-media
 7. npm install @discordjs/opus
 8. node index.js
+9. npm install mathjs
+10. npm install date-and-time
 ```
 
 # Project Description
