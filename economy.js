@@ -36,7 +36,7 @@ module.exports.addXP = async (guildId, userId, xp)  => {
 
 module.exports.addLevel = async (guildId, userId, xp)  => {
   return await mongo().then(async (mongoose) => {
-    let level = Math.floor(xp/10000);
+    var level = Math.round(xp/10000)
     console.log('Running findOneAndUpdate()')
     const result = await profileSchema.findOneAndUpdate(
       {
@@ -61,40 +61,36 @@ module.exports.addLevel = async (guildId, userId, xp)  => {
   })
 }
 
-module.exports.registerNewUser= async (guildId, userId) => {
-
+module.exports.registerNewUser = async (guildId, userId) => {
   return await mongo().then(async (mongoose) => {
     
     console.log('Running findOne()')
-
+    let coins = 0
+    let level = 0
+    let xp = 0
+    let worked = 0
     const result = await profileSchema.findOne({
       guildId,
       userId,
     })
-
     console.log('RESULT:', result)
-
-    let coins = 0
-    let level = 1
-    let xp = 0
-    let worked = 0
-
-    if (result) {
-      return true
-    } else {
+    if (result === null) {
       console.log('Inserting a document')
-      await new profileSchema({
+      let result2 = await new profileSchema({
         guildId,
         userId,
         coins,
         level,
         xp,
         worked,
-      }).save()
+      }).save() 
+      result = result2
+      return result
+    }else{
+      return null
     }
-    return false  
   })
-}
+  }
 
 module.exports.getWorked = async (guildId, userId) => {
   return await mongo().then(async (mongoose) => {
@@ -112,6 +108,31 @@ module.exports.getWorked = async (guildId, userId) => {
       mongoose.connection.close()
     }
   })
+}
+
+module.exports.updateWorked = async (guildId, userId, worked) => {
+  console.log('Running findOneAndUpdate()')
+
+    const result = await profileSchema.findOneAndUpdate(
+      {
+        guildId,
+        userId,
+      },
+      {
+        guildId,
+        userId,
+        $set: {
+          worked,
+        },
+      },
+      {
+        upsert: true,
+        new: true,
+      }
+    )
+
+    console.log('RESULT:', result)
+    return result.worked
 }
 
 module.exports.addCoins = async (guildId, userId, coins) => {

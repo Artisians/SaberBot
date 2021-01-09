@@ -7,11 +7,11 @@ module.exports = {
     const guildId = message.guild.id
     const target =  message.author
     const targetId = target.id
-    let returnning = economy.registerNewUser(guildId,targetId)
-    if(!returnning){
-        message.reply(`has been registered, \n Welcome to the Economy system get started with there commands`)
+    let value = economy.registerNewUser(guildId,targetId)
+    if(value !== null){
+        message.reply(`here are some commands, \n Welcome to the Economy system get started with these commands`)
         const embed = new Discord.MessageEmbed()
-        .setTitle('Example text embed')
+        .setTitle('Economy System Commands')
         .setColor('#00AAFF')
         .addFields(
           {
@@ -27,9 +27,9 @@ module.exports = {
             value: 'if you are an admin, give your friends some money to get them started',
           }
         )
-      message.channel.send(embed)      
+        message.channel.send(embed)
     }else{
-        message.reply(`<@${targetId}> has been registered before`)
+        message.reply(`has been registered before`) 
     }
   },
 }
