@@ -14,6 +14,7 @@
 9. npm install mathjs
 10. npm install date-and-time
 11. npm link ms
+12. npm install requests
 ```
 
 # Project Description
@@ -97,10 +98,11 @@ software, and "MongoDB Inc." for the Database.
 # Economy system:
 
 Consists of a game; allowing the users to have fun by playing it. Where you
+
 - register by showing commands and setting up all your info
-- addbalance : For admins: they can they can add balance to their profile or others 
+- addbalance : For admins: they can they can add balance to their profile or others
 - balance: shows the user's coins that he aquired while playing the game
-- work: the users can work one of four jobs at random and earn money (coins) , experiance , levels, 
+- work: the users can work one of four jobs at random and earn money (coins) , experiance , levels,
   the user can only work every 12 hours to stop from spamming the work commands
 
 # User leveling system Service:
