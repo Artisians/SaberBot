@@ -6,15 +6,14 @@
 1. npm init -y
 2. npm install discord.js
 3. npm install mongoose
-4. npm install ffmpeg-static
-5. npm install ytdl-core-discord
-6. npm install prism-media
-7. npm install @discordjs/opus
-8. npm install mathjs
-9. npm install date-and-time
-10. npm link ms
-11. npm install request
-12. node index.js
+4. npm install ytdl-core-discord
+5. npm install prism-media
+6. npm install @discordjs/opus
+7. npm install mathjs
+8. npm install date-and-time
+9. npm link ms
+10. npm install request
+11. node index.js
 ```
 
 # Project Description
